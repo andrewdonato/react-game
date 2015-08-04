@@ -117,9 +117,9 @@ Board.prototype.refreshTiles = function(miniMap){
   var board = this
   this.tiles = [];
 
-
-  ////so the problem is this the x1, y1 values do not change because they are locations on the visible board and those never change.
+  ////so the problem is this the x1, y1 values do not change because they are the ones in the board.
   ////I need the other values
+
 
   rows.map(function(row, y1){
     // console.log('this is the row',row)
@@ -138,8 +138,6 @@ Board.prototype.refreshTiles = function(miniMap){
       // console.log("BUNNY", x1, y1, value)
       ////////////////////////////////////////////////////////////
 
-
-
     });
   });
 
@@ -151,7 +149,8 @@ Board.prototype.display = function(){
   var clearFog = fogWar
 
   for (var i = 0; i < this.tiles.length; i++){
-    clearFog[this.tiles[i].x][this.tiles[i].y] = this.game.miniMap[this.tiles[i].x][this.tiles[i].y];
+    var specificTile = [this.tiles[i].x][this.tiles[i].y]
+    clearFog[specificTile] = this.game.miniMap[specificTile];
   }
 
   console.log(clearFog[0])

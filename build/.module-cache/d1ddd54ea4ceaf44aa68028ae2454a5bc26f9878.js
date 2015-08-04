@@ -117,9 +117,9 @@ Board.prototype.refreshTiles = function(miniMap){
   var board = this
   this.tiles = [];
 
-
-  ////so the problem is this the x1, y1 values do not change because they are locations on the visible board and those never change.
+  ////so the problem is this the x1, y1 values do not change because they are the ones in the board.
   ////I need the other values
+
 
   rows.map(function(row, y1){
     // console.log('this is the row',row)
@@ -132,13 +132,10 @@ Board.prototype.refreshTiles = function(miniMap){
       //// need to add in board around player
       //// need to erase spots player is no longer seeing
 
-      board.tiles.push(new Tile(board.game, {x:x, y:y}, value));
-      //// the below line was getting stuck because x1 and y1 were the values of the locations in the board
-      // board.tiles.push(new Tile(board.game, {x:x1, y:y1}, value));
+      // board.tiles.push(new Tile(board.game, {x:x, y:y}, value));
+      board.tiles.push(new Tile(board.game, {x:x1, y:y1}, value));
       // console.log("BUNNY", x1, y1, value)
       ////////////////////////////////////////////////////////////
-
-
 
     });
   });

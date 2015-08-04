@@ -111,34 +111,18 @@ Board.prototype.refreshTiles = function(miniMap){
   var rows = miniMap.slice(y-(BOARD_HEIGHT/2), (y-(BOARD_HEIGHT/2)) + BOARD_HEIGHT);
 
   rows = rows.map(function(row){
-    // debugger
+    debugger
     return row.slice(x-(BOARD_WIDTH/2), (x-(BOARD_WIDTH/2)) + BOARD_WIDTH);
   });
   var board = this
   this.tiles = [];
 
-
-  ////so the problem is this the x1, y1 values do not change because they are locations on the visible board and those never change.
-  ////I need the other values
-
   rows.map(function(row, y1){
-    // console.log('this is the row',row)
     row.map(function(value, x1){
-      // console.log("this is the element :", value, x1, y1)
+
       var value = row[x1]
-
-      ////////////////////////////////////////////////////////////
-      //// the below logic adds in the clearFog for the player spot and where the player has been only
-      //// need to add in board around player
-      //// need to erase spots player is no longer seeing
-
-      board.tiles.push(new Tile(board.game, {x:x, y:y}, value));
-      //// the below line was getting stuck because x1 and y1 were the values of the locations in the board
-      // board.tiles.push(new Tile(board.game, {x:x1, y:y1}, value));
+      board.tiles.push(new Tile(board.game, {x:x1, y:y1}, value));
       // console.log("BUNNY", x1, y1, value)
-      ////////////////////////////////////////////////////////////
-
-
 
     });
   });

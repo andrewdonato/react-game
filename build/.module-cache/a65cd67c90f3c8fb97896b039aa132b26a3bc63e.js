@@ -101,8 +101,8 @@ Board = function(game){
 Board.prototype.refreshTiles = function(miniMap){
   // console.log(this)
 
-  var x = this.game.player.x;
-  var y = this.game.player.y;
+  var x1 = this.game.player.x;
+  var y1 = this.game.player.y;
   // debugger // x and y are changing each time the player moves so its not this part
 
   console.log("refreshTiles playerposition: ", x, y)
@@ -117,28 +117,13 @@ Board.prototype.refreshTiles = function(miniMap){
   var board = this
   this.tiles = [];
 
-
-  ////so the problem is this the x1, y1 values do not change because they are locations on the visible board and those never change.
-  ////I need the other values
-
   rows.map(function(row, y1){
-    // console.log('this is the row',row)
+    console.log('this is the row',row)
     row.map(function(value, x1){
-      // console.log("this is the element :", value, x1, y1)
+      console.log("this is the element", value)
       var value = row[x1]
-
-      ////////////////////////////////////////////////////////////
-      //// the below logic adds in the clearFog for the player spot and where the player has been only
-      //// need to add in board around player
-      //// need to erase spots player is no longer seeing
-
-      board.tiles.push(new Tile(board.game, {x:x, y:y}, value));
-      //// the below line was getting stuck because x1 and y1 were the values of the locations in the board
-      // board.tiles.push(new Tile(board.game, {x:x1, y:y1}, value));
+      board.tiles.push(new Tile(board.game, {x:x1, y:y1}, value));
       // console.log("BUNNY", x1, y1, value)
-      ////////////////////////////////////////////////////////////
-
-
 
     });
   });
