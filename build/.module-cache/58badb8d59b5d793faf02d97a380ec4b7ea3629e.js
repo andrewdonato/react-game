@@ -16,15 +16,15 @@ var smallMap = [
 ];
 
 var mediumMap = [
-  ['wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall'],
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
-  ['wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall'],
+  ['aa', 'aa', 'aa', 'aa', 'aa', 'aa', 'aa', 'aa', 'aa'],
+  ['aa', 'bb', 'bb', 'bb', 'bb', 'bb', 'bb', 'bb', 'aa'],
+  ['aa', 'bb', 'bb', 'bb', 'bb', 'bb', 'bb', 'bb', 'aa'],
+  ['aa', 'bb', 'bb', 'bb', 'bb', 'bb', 'bb', 'bb', 'aa'],
+  ['aa', 'bb', 'bb', 'bb', 'bb', 'bb', 'bb', 'bb', 'aa'],
+  ['aa', 'bb', 'bb', 'bb', 'bb', 'bb', 'bb', 'bb', 'aa'],
+  ['aa', 'bb', 'bb', 'bb', 'bb', 'bb', 'bb', 'bb', 'aa'],
+  ['aa', 'bb', 'bb', 'bb', 'bb', 'bb', 'bb', 'bb', 'aa'],
+  ['aa', 'aa', 'aa', 'aa', 'aa', 'aa', 'aa', 'aa', 'aa'],
 ]
 
 
@@ -90,7 +90,7 @@ Board.prototype.refreshTiles = function(minimap){
   this.tiles = [];
 
   rows.map(function(row, y){
-    row.map(function(value, x){
+    row.map(function(x, value){
       var value = row[x]
 
       // console.log("tile is at: " + x  + ", " + y)
@@ -105,18 +105,6 @@ Board.prototype.refreshTiles = function(minimap){
 };
 
 
-Board.prototype.display = function(){
-  rows.map(function(row, y){
-    row.map(function(value, x){
-      var value = row[x]
-
-      // console.log("tile is at: " + x  + ", " + y)
-
-      board.tiles.push(new Tile(board.game, {x:x ,y:y}, value));
-      console.log("BUNNY", x, y, value)
-    });
-  });
-}
 
 
 

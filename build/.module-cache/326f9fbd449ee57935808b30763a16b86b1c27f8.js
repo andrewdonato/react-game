@@ -16,15 +16,15 @@ var smallMap = [
 ];
 
 var mediumMap = [
-  ['wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall'],
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
-  ['wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall'],
+  ['1', '1', '1', '1', '1', '1', '1', '1', '1'],
+  ['1', 0, 0, 0, 0, 0, 0, 0, '1'],
+  ['1', 0, 0, 0, 0, 0, 0, 0, '1'],
+  ['1', 0, 0, 0, 0, 0, 0, 0, '1'],
+  ['1', 0, 0, 0, 0, 0, 0, 0, '1'],
+  ['1', 0, 0, 0, 0, 0, 0, 0, '1'],
+  ['1', 0, 0, 0, 0, 0, 0, 0, '1'],
+  ['1', 0, 0, 0, 0, 0, 0, 0, '1'],
+  ['1', '1', '1', '1', '1', '1', '1', '1', '1'],
 ]
 
 
@@ -90,13 +90,13 @@ Board.prototype.refreshTiles = function(minimap){
   this.tiles = [];
 
   rows.map(function(row, y){
-    row.map(function(value, x){
+    row.map(function(x, value){
       var value = row[x]
 
       // console.log("tile is at: " + x  + ", " + y)
 
-      board.tiles.push(new Tile(board.game, {x:x ,y:y}, value));
-      console.log("BUNNY", x, y, value)
+      board.tiles.push(new Tile(board.game, {x:x,y:y}, value));
+      console.log(x, y, value)
     });
   });
 
@@ -105,18 +105,6 @@ Board.prototype.refreshTiles = function(minimap){
 };
 
 
-Board.prototype.display = function(){
-  rows.map(function(row, y){
-    row.map(function(value, x){
-      var value = row[x]
-
-      // console.log("tile is at: " + x  + ", " + y)
-
-      board.tiles.push(new Tile(board.game, {x:x ,y:y}, value));
-      console.log("BUNNY", x, y, value)
-    });
-  });
-}
 
 
 
