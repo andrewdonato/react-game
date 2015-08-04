@@ -139,7 +139,7 @@ Board.prototype.display = function(){
   console.log(clearFog[7])
   console.log(clearFog[8])
 
-
+  debugger
 
   // clearFog.map(function(row){
   //   console.log(row)
@@ -179,16 +179,23 @@ console.log('not frozen', zelda);
 
 // console.log('player moves down')
 
+zelda.player.move('down')
+zelda.board.display()
+console.log("")
 
-for (var i = 0; i < 4; i++){
+zelda.player.move('down')
+zelda.board.display()
+console.log("")
 
-  zelda.player.move('down')
-  zelda.board.display()
-  console.log('player position: ',zelda.player.x, zelda.player.y)
+zelda.player.move('down')
+zelda.board.display()
+console.log("")
 
-}
-
+zelda.player.move('down')
+zelda.board.display()
+console.log("")
 
 
 // console.log("location of the player: " + zelda.player.x + ", " + zelda.player.y)
 // console.log(zelda)
+zelda.board.display()

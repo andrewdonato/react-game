@@ -70,7 +70,7 @@ Player.prototype.move = function(direction){
   if (direction === 'down' ) this.y++;
   if (direction === 'left' ) this.x--;
   if (direction === 'right') this.x++;
-  this.game.board.refreshTiles(this.game.miniMap);
+  this.game.board.refreshTiles(this.game.map);
 
   return this;
 };
@@ -88,13 +88,13 @@ Board = function(game){
 
 
 Board.prototype.refreshTiles = function(miniMap){
-  // console.log(this)
+  console.log(this)
 
   var x = this.game.player.x;
   var y = this.game.player.y;
 
-  // console.log(miniMap)
-
+  console.log(miniMap)
+  debugger
 
   var rows = miniMap.slice(y-(BOARD_HEIGHT/2), (y-(BOARD_HEIGHT/2)) + BOARD_HEIGHT);
   rows = rows.map(function(row){
@@ -110,21 +110,20 @@ Board.prototype.refreshTiles = function(miniMap){
 
       var value = row[x]
       board.tiles.push(new Tile(board.game, {x:x, y:y}, value));
-      // console.log("BUNNY", x, y, value)
+      console.log("BUNNY", x, y, value)
 
     });
   });
 
-  // board.tiles.map(function(tile){
-  //   console.log(tile.value)
-  // });
+  board.tiles.map(function(tile){
+    console.log(tile.value)
+  });
 };
 
 
 Board.prototype.display = function(){
 
   var clearFog = fogWar
-
   for (var i = 0; i < this.tiles.length; i++){
     clearFog[this.tiles[i].x][this.tiles[i].y] = this.game.miniMap[this.tiles[i].x][this.tiles[i].y];
   }
@@ -179,16 +178,19 @@ console.log('not frozen', zelda);
 
 // console.log('player moves down')
 
+zelda.player.move('down')
+zelda.board.display()
 
-for (var i = 0; i < 4; i++){
+zelda.player.move('down')
+zelda.board.display()
 
-  zelda.player.move('down')
-  zelda.board.display()
-  console.log('player position: ',zelda.player.x, zelda.player.y)
+zelda.player.move('down')
+zelda.board.display()
 
-}
-
+zelda.player.move('down')
+zelda.board.display()
 
 
 // console.log("location of the player: " + zelda.player.x + ", " + zelda.player.y)
 // console.log(zelda)
+zelda.board.display()

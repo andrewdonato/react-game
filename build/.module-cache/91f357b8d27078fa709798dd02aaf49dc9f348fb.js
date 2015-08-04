@@ -180,11 +180,11 @@ console.log('not frozen', zelda);
 // console.log('player moves down')
 
 
-for (var i = 0; i < 4; i++){
+for (var i = 0; i < 3; i++){
 
   zelda.player.move('down')
-  zelda.board.display()
   console.log('player position: ',zelda.player.x, zelda.player.y)
+  zelda.board.display()
 
 }
 
