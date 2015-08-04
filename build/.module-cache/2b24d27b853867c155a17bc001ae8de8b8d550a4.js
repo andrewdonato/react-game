@@ -44,6 +44,7 @@ Game = function(map){
   this.board = new Board(this);
   this.player = new Player(this, 4,4);
   this.board.refreshTiles(map);
+  console.log('fuck')
 };
 
 Tile = function(game, options, value){

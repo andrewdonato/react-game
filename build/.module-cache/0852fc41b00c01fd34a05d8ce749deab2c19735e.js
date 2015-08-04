@@ -61,8 +61,8 @@ Board = function(game){
 
 Player = function(game, x, y){
   this.game = game;
-  this.x = x;
-  this.y = y;
+  this.x = 7;
+  this.y = 7;
 };
 
 Player.prototype.changeX = function(num){
@@ -102,14 +102,14 @@ Board.prototype.refreshTiles = function(miniMap){
   var x = this.game.player.x;
   var y = this.game.player.y;
 
-  console.log("refreshTiles playerposition: ", x, y)
+  // console.log(miniMap)
 
 
   var rows = miniMap.slice(y-(BOARD_HEIGHT/2), (y-(BOARD_HEIGHT/2)) + BOARD_HEIGHT);
   rows = rows.map(function(row){
     return row.slice(x-(BOARD_WIDTH/2), (x-(BOARD_WIDTH/2)) + BOARD_WIDTH);
-    debugger
   });
+
   var board = this
   this.tiles = [];
 
@@ -187,10 +187,9 @@ console.log('not frozen', zelda);
 
 for (var i = 0; i < 4; i++){
 
-  console.log('player position: ',zelda.player.x, zelda.player.y)
   zelda.player.move('right')
-  zelda.player.move('down')
   zelda.board.display()
+  console.log('player position: ',zelda.player.x, zelda.player.y)
 
 }
 

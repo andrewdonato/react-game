@@ -187,10 +187,10 @@ console.log('not frozen', zelda);
 
 for (var i = 0; i < 4; i++){
 
-  console.log('player position: ',zelda.player.x, zelda.player.y)
   zelda.player.move('right')
   zelda.player.move('down')
   zelda.board.display()
+  console.log('player position: ',zelda.player.x, zelda.player.y)
 
 }
 
