@@ -177,9 +177,17 @@ console.log('not frozen', zelda);
 // console.log('player moves down')
 
 zelda.player.move('down')
+zelda.board.display()
+
 zelda.player.move('down')
+zelda.board.display()
+
 zelda.player.move('down')
+zelda.board.display()
+
 zelda.player.move('down')
+zelda.board.display()
+
 
 // console.log("location of the player: " + zelda.player.x + ", " + zelda.player.y)
 // console.log(zelda)

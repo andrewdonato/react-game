@@ -71,6 +71,7 @@ Player.prototype.move = function(direction){
   if (direction === 'left' ) this.x--;
   if (direction === 'right') this.x++;
   this.game.board.refreshTiles(this.game.map);
+  zelda.board.display()
 
   return this;
 };
@@ -176,11 +177,11 @@ console.log('not frozen', zelda);
 
 // console.log('player moves down')
 
-zelda.player.move('down')
-zelda.player.move('down')
-zelda.player.move('down')
-zelda.player.move('down')
+// zelda.player.move('down')
+// zelda.player.move('down')
+// zelda.player.move('down')
+// zelda.player.move('down')
 
 // console.log("location of the player: " + zelda.player.x + ", " + zelda.player.y)
 // console.log(zelda)
-zelda.board.display()
+// zelda.board.display()

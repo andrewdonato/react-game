@@ -16,26 +16,26 @@ var smallMap = [
 ];
 
 var mediumMap = [
-  ['walls', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls'],     // 0
-  ['walls', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls'],     // 1
-  ['walls', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls'],     // 2
-  ['walls', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls'],     // 3
-  ['walls', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls'],     // 4
-  ['walls', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls'],     // 5
-  ['walls', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls'],     // 6
-  ['walls', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls'],     // 7
-  ['walls', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls'],     // 8
+  ['wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall'],     // 0
+  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],     // 1
+  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],     // 2
+  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],     // 3
+  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],     // 4
+  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],     // 5
+  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],     // 6
+  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],     // 7
+  ['wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall'],     // 8
 ]
 var fogWar = [
-  ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 0
-  ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 1
-  ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 2
-  ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 3
-  ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 4
-  ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 5
-  ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 6
-  ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 7
-  ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 8
+  ['xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx'],     // 0
+  ['xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx'],     // 1
+  ['xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx'],     // 2
+  ['xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx'],     // 3
+  ['xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx'],     // 4
+  ['xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx'],     // 5
+  ['xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx'],     // 6
+  ['xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx'],     // 7
+  ['xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx', 'xxxxx'],     // 8
 ]
 
 
@@ -71,7 +71,6 @@ Player.prototype.move = function(direction){
   if (direction === 'left' ) this.x--;
   if (direction === 'right') this.x++;
   this.game.board.refreshTiles(this.game.map);
-
   return this;
 };
 
@@ -144,7 +143,7 @@ Board.prototype.display = function(){
 
 
       // if row[i] is in the board printedrow.push(row[i])
-      // else printedrow.push('_____')
+      // else printedrow.push('xxxxx')
     // }
     // console.log(row)
   // })
@@ -176,10 +175,10 @@ console.log('not frozen', zelda);
 
 // console.log('player moves down')
 
-zelda.player.move('down')
-zelda.player.move('down')
-zelda.player.move('down')
-zelda.player.move('down')
+// zelda.player.move('down')
+// zelda.player.move('down')
+// zelda.player.move('down')
+// zelda.player.move('down')
 
 // console.log("location of the player: " + zelda.player.x + ", " + zelda.player.y)
 // console.log(zelda)

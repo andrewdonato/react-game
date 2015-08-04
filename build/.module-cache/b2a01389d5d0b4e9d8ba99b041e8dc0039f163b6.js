@@ -27,15 +27,15 @@ var mediumMap = [
   ['walls', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls'],     // 8
 ]
 var fogWar = [
-  ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 0
-  ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 1
-  ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 2
-  ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 3
-  ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 4
-  ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 5
-  ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 6
-  ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 7
-  ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 8
+  ['XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX'],     // 0
+  ['XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX'],     // 1
+  ['XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX'],     // 2
+  ['XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX'],     // 3
+  ['XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX'],     // 4
+  ['XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX'],     // 5
+  ['XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX'],     // 6
+  ['XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX'],     // 7
+  ['XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX', 'XXXXX'],     // 8
 ]
 
 
@@ -71,7 +71,6 @@ Player.prototype.move = function(direction){
   if (direction === 'left' ) this.x--;
   if (direction === 'right') this.x++;
   this.game.board.refreshTiles(this.game.map);
-
   return this;
 };
 
@@ -144,7 +143,7 @@ Board.prototype.display = function(){
 
 
       // if row[i] is in the board printedrow.push(row[i])
-      // else printedrow.push('_____')
+      // else printedrow.push('XXXXX')
     // }
     // console.log(row)
   // })
@@ -176,10 +175,10 @@ console.log('not frozen', zelda);
 
 // console.log('player moves down')
 
-zelda.player.move('down')
-zelda.player.move('down')
-zelda.player.move('down')
-zelda.player.move('down')
+// zelda.player.move('down')
+// zelda.player.move('down')
+// zelda.player.move('down')
+// zelda.player.move('down')
 
 // console.log("location of the player: " + zelda.player.x + ", " + zelda.player.y)
 // console.log(zelda)
