@@ -16,15 +16,15 @@ var smallMap = [
 ];
 
 var mediumMap = [
-  ['wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall'],     // 0
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],     // 1
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],     // 2
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],     // 3
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],     // 4
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],     // 5
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],     // 6
-  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],     // 7
-  ['wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall'],     // 8
+  ['wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall'],
+  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
+  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
+  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
+  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
+  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
+  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
+  ['wall',  'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'wall'],
+  ['wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall',  'wall'],
 ]
 
 
@@ -35,11 +35,10 @@ Game = function(map){
   this.board.refreshTiles(map);
 };
 
-Tile = function(game, options, value){
+Tile = function(game, options){
   this.game = game;
   this.x = options.x
   this.y = options.y
-  this.value = value
 };
 
 Board = function(game){
@@ -80,7 +79,7 @@ Board.prototype.refreshTiles = function(minimap){
   var x = this.game.player.x;
   var y = this.game.player.y;
 
-  // console.log(minimap)
+  console.log(minimap)
   var rows = minimap.slice(y-(BOARD_HEIGHT/2), (y-(BOARD_HEIGHT/2)) + BOARD_HEIGHT);
   rows = rows.map(function(row){
     return row.slice(x-(BOARD_WIDTH/2), (x-(BOARD_WIDTH/2)) + BOARD_WIDTH);
@@ -92,25 +91,38 @@ Board.prototype.refreshTiles = function(minimap){
 
   rows.map(function(row, y){
     row.map(function(value, x){
-
-
       var value = row[x]
-      board.tiles.push(new Tile(board.game, {x:x, y:y}, value));
-      console.log("BUNNY", x, y, value)
 
+      // console.log("tile is at: " + x  + ", " + y)
+
+      board.tiles.push(new Tile(board.game, {x:x ,y:y}, value));
+      console.log("BUNNY", x, y, value)
     });
   });
 
   // console.log("tile: " + board.tiles[0]);
-  // console.log( 'fuck', board.tiles)
-  board.tiles.map(function(tile){
-    console.log(tile)
-  });
+
 };
 
 
 Board.prototype.display = function(){
-  console.log(this)
+  // var currentBoard = [];
+  // rows.map(function(row, y){
+  //   var currentRow = []
+  //   row.map(function(value, x){
+  //     // var value = row[x]
+  //     // console.log("tile is at: " + x  + ", " + y)
+  //     // board.tiles.push(new Tile(board.game, {x:x ,y:y}, value));
+
+  //     currentRow.push(value);
+
+  //   });
+  //   currentBoard.push(currentRow);
+
+  // });
+  console.log("look here")
+  // console.log(currentBoard)
+  // return currentBoard;
 }
 
 
@@ -138,11 +150,13 @@ zelda.player.move('down')
 
 console.log('player moves down')
 
-// zelda.board.display()
 zelda.player.move('down')
 zelda.player.move('down')
 zelda.player.move('down')
 zelda.player.move('down')
 
 console.log("location of the player: " + zelda.player.x + ", " + zelda.player.y)
-// console.log(zelda)
+console.log(zelda)
+
+console.log('tofu')
+console.log(zelda.board.display)

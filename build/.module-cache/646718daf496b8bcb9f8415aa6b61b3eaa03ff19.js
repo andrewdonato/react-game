@@ -91,7 +91,7 @@ Board.prototype.refreshTiles = function(minimap){
   this.tiles = [];
 
   rows.map(function(row, y){
-    row.map(function(value, x){
+    row.map(function(x){
 
 
       var value = row[x]

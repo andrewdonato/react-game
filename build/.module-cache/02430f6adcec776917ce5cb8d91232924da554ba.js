@@ -92,12 +92,13 @@ Board.prototype.refreshTiles = function(minimap){
 
   rows.map(function(row, y){
     row.map(function(value, x){
-
-
       var value = row[x]
+      console.log('apple', value)
+
+      // console.log("tile is at: " + x  + ", " + y)
+
       board.tiles.push(new Tile(board.game, {x:x, y:y}, value));
       console.log("BUNNY", x, y, value)
-
     });
   });
 

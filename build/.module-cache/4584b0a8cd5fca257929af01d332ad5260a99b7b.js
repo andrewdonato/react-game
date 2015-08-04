@@ -35,11 +35,10 @@ Game = function(map){
   this.board.refreshTiles(map);
 };
 
-Tile = function(game, options, value){
+Tile = function(game, options){
   this.game = game;
   this.x = options.x
   this.y = options.y
-  this.value = value
 };
 
 Board = function(game){
@@ -92,20 +91,17 @@ Board.prototype.refreshTiles = function(minimap){
 
   rows.map(function(row, y){
     row.map(function(value, x){
-
-
       var value = row[x]
-      board.tiles.push(new Tile(board.game, {x:x, y:y}, value));
-      console.log("BUNNY", x, y, value)
 
+      // console.log("tile is at: " + x  + ", " + y)
+
+      board.tiles.push(new Tile(board.game, {x:x ,y:y}, value));
+      console.log("BUNNY", x, y, value)
     });
   });
 
   // console.log("tile: " + board.tiles[0]);
-  // console.log( 'fuck', board.tiles)
-  board.tiles.map(function(tile){
-    console.log(tile)
-  });
+
 };
 
 
@@ -146,3 +142,4 @@ zelda.player.move('down')
 
 console.log("location of the player: " + zelda.player.x + ", " + zelda.player.y)
 // console.log(zelda)
+
