@@ -76,13 +76,11 @@ Board.prototype.refreshTiles = function(){
 
   rows.map(function(row, y){
     row.map(function(value, x){
-      console.log( y+":pizza: "+x)
       board.tiles.push(new Tile(board.game, {x:x,y:y}, value));
-
     });
   });
 
-  console.log("tile: " + board.tiles[0]);
+  // console.log(rows);
   // console.log(map);
 
   // for (var i = 0; i < rows.length; i++){
@@ -105,14 +103,14 @@ console.log(zelda.player.x + ", " + zelda.player.y)
 // console.log(zelda.player.x + ", " + zelda.player.y)
 
 console.log('player moves down')
-
+debugger
 zelda.player.move('down')
 zelda.player.move('down')
 zelda.player.move('down')
 zelda.player.move('down')
-
 console.log(zelda.player.x + ", " + zelda.player.y)
 
 console.log(zelda)
+debugger
 
 

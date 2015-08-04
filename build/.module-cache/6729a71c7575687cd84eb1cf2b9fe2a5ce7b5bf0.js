@@ -76,7 +76,7 @@ Board.prototype.refreshTiles = function(){
 
   rows.map(function(row, y){
     row.map(function(value, x){
-      console.log( y+":pizza: "+x)
+      console.log( "pizza: ") +
       board.tiles.push(new Tile(board.game, {x:x,y:y}, value));
 
     });

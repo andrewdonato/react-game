@@ -76,13 +76,11 @@ Board.prototype.refreshTiles = function(){
 
   rows.map(function(row, y){
     row.map(function(value, x){
-      console.log( y+":pizza: "+x)
       board.tiles.push(new Tile(board.game, {x:x,y:y}, value));
-
     });
   });
 
-  console.log("tile: " + board.tiles[0]);
+  console.log(board.tiles[0][0]);
   // console.log(map);
 
   // for (var i = 0; i < rows.length; i++){

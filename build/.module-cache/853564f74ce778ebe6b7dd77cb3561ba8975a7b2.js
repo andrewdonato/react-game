@@ -22,10 +22,8 @@ Game = function(){
   this.board.refreshTiles();
 };
 
-Tile = function(game, options){
+Tile = function(game){
   this.game = game;
-  this.x = options.x
-  this.y = options.y
 };
 
 Board = function(game){
@@ -44,7 +42,7 @@ Player.prototype.move = function(direction){
   if (direction === 'down' ) this.y++;
   if (direction === 'left' ) this.x--;
   if (direction === 'right') this.x++;
-  this.game.board.refreshTiles();
+  this.game.board.update();
   return this;
 };
 
@@ -65,24 +63,9 @@ Board.prototype.refreshTiles = function(){
   var x = this.game.player.x;
   var y = this.game.player.y;
 
-  var rows = map.slice(y-(BOARD_HEIGHT/2), BOARD_HEIGHT);
-  rows = rows.map(function(row){
-    return row.slice(x-(BOARD_WIDTH/2), BOARD_WIDTH);
-    console.log(row)
-  });
-
-  var board = this
-  this.tiles = [];
-
-  rows.map(function(row, y){
-    row.map(function(value, x){
-      console.log( y+":pizza: "+x)
-      board.tiles.push(new Tile(board.game, {x:x,y:y}, value));
-
-    });
-  });
-
-  console.log("tile: " + board.tiles[0]);
+  // var rows = map.slice(y-((BOARD_HEIGHT/2)+1), BOARD_HEIGHT)
+  debugger
+  // console.log(rows);
   // console.log(map);
 
   // for (var i = 0; i < rows.length; i++){
@@ -93,26 +76,14 @@ Board.prototype.refreshTiles = function(){
 // //// creating a new game
 zelda = new Game();
 console.log('not frozen', zelda);
-console.log('player initial position')
-console.log(zelda.player.x + ", " + zelda.player.y)
+// console.log('player initial position')
+// console.log(zelda.player.x + ", " + zelda.player.y)
 
-//// player moving
-console.log('player moves down')
-zelda.player.move('down')
-console.log(zelda.player.x + ", " + zelda.player.y)
+// //// player moving
+// console.log('player moves down')
+// zelda.player.move('down')
+// console.log(zelda.player.x + ", " + zelda.player.y)
 // console.log('player moves right')
 // zelda.player.move('right')
 // console.log(zelda.player.x + ", " + zelda.player.y)
-
-console.log('player moves down')
-
-zelda.player.move('down')
-zelda.player.move('down')
-zelda.player.move('down')
-zelda.player.move('down')
-
-console.log(zelda.player.x + ", " + zelda.player.y)
-
-console.log(zelda)
-
 

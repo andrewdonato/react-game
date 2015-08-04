@@ -44,7 +44,7 @@ Player.prototype.move = function(direction){
   if (direction === 'down' ) this.y++;
   if (direction === 'left' ) this.x--;
   if (direction === 'right') this.x++;
-  this.game.board.refreshTiles();
+  this.game.board.update();
   return this;
 };
 
@@ -76,13 +76,11 @@ Board.prototype.refreshTiles = function(){
 
   rows.map(function(row, y){
     row.map(function(value, x){
-      console.log( y+":pizza: "+x)
       board.tiles.push(new Tile(board.game, {x:x,y:y}, value));
-
     });
   });
 
-  console.log("tile: " + board.tiles[0]);
+  // console.log(rows);
   // console.log(map);
 
   // for (var i = 0; i < rows.length; i++){
@@ -100,19 +98,7 @@ console.log(zelda.player.x + ", " + zelda.player.y)
 console.log('player moves down')
 zelda.player.move('down')
 console.log(zelda.player.x + ", " + zelda.player.y)
-// console.log('player moves right')
-// zelda.player.move('right')
-// console.log(zelda.player.x + ", " + zelda.player.y)
-
-console.log('player moves down')
-
-zelda.player.move('down')
-zelda.player.move('down')
-zelda.player.move('down')
-zelda.player.move('down')
-
+console.log('player moves right')
+zelda.player.move('right')
 console.log(zelda.player.x + ", " + zelda.player.y)
-
-console.log(zelda)
-
 
