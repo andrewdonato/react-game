@@ -8,70 +8,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
     <script src="build/reactgame.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/reactgame.css"></link>
   </head>
   <body>
-    <div id="content"></div>
-    <script type="text/jsx">
-
-      // -game
-      //   -miniMap  //I don't think I need to render this since it will be on the board
-      //   -board
-      //     -tile
-      //   -player
-
-
-// this is the outer most container, I would use game
-      var Game = React.createClass({
-        render: function() {
-          return (
-            <div className="game">
-              <h1>React Game</h1>
-              <Board />
-              <Player />
-            </div>
-          );
-        }
-      });
-
-      var Board = React.createClass({
-        render: function() {
-          return (
-            <div className="board">
-              <Tile position="1, 2"> THis is one Tile </Tile>
-              <Tile position="4, 4"> THis is another Tile </Tile>
-            </div>
-          );
-        }
-      });
-
-      var Player = React.createClass({
-        render: function() {
-          return (
-            <div className="player">
-              <h1>Player here!</h1>
-            </div>
-          );
-        }
-      });
-
-      var Tile = React.createClass({
-        render: function(){
-          return(
-            <div className="tile">
-              <h2 className="tilePosition">
-                {this.props.position}
-              </h2>
-              {this.props.children}
-            </div>
-          );
-        }
-      })
-
-      React.render(
-        <Game />,
-        document.getElementById('content')
-      );
-
-    </script>
   </body>
 </html>

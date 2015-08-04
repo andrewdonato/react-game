@@ -68,10 +68,8 @@ Board.prototype.refreshTiles = function(){
     yTo    = yFrom + BOARD_HEIGHT,
     xFrom  = player.x-Math.floor(BOARD_WIDTH/2),
     xTo    = xFrom + BOARD_WIDTH,
-
     rows   = this.game.landscape.tiles.slice(yFrom, yTo);
     tiles = rows.map(function(row){ return row.slice(xFrom, xTo); });
-
   this.tiles = tiles;
   return this;
 };
@@ -120,7 +118,7 @@ Player.prototype.move = function(direction){
 var DOM = Object.create(React.DOM);
 
 // this is the outer most container, I would use game
-DOM.Game = React.createClass({
+DOM.Game = React.createClass({displayName: "Game",
   propTypes:{
     game: React.PropTypes.object.isRequired,
   },
@@ -147,15 +145,15 @@ DOM.Game = React.createClass({
 
   render: function() {
     return (
-      <div className="game">
-        <h1>React Game</h1>
-        <DOM.Board game={this.props.game} />
-      </div>
+      React.createElement("div", {className: "game"}, 
+        React.createElement("h1", null, "React Game"), 
+        React.createElement(DOM.Board, {game: this.props.game})
+      )
     );
   }
 });
 
-DOM.Board = React.createClass({
+DOM.Board = React.createClass({displayName: "Board",
   propTypes:{
     game: React.PropTypes.object.isRequired,
   },
@@ -163,17 +161,17 @@ DOM.Board = React.createClass({
     var game = this.props.game
     var rows = this.props.game.board.tiles.map(function(row, index){
       var tiles = row.map(function(tile, index){
-        return <DOM.Tile key={index} game={game} tile={tile} />
+        return React.createElement(DOM.Tile, {key: index, game: game, tile: tile})
       });
-      return <div key={index} className="Board-row">{tiles}</div>;
+      return React.createElement("div", {key: index, className: "Board-row"}, tiles);
     });
     return (
-      <div className="Board">{rows}</div>
+      React.createElement("div", {className: "Board"}, rows)
     );
   }
 });
 
-DOM.Tile = React.createClass({
+DOM.Tile = React.createClass({displayName: "Tile",
   propTypes:{
     tile: React.PropTypes.object.isRequired,
   },
@@ -186,26 +184,26 @@ DOM.Tile = React.createClass({
       value = '☃'
     }
     return(
-      <div className="Board-tile">
-        {value}
-      </div>
+      React.createElement("div", {className: "Board-tile"}, 
+        value
+      )
     );
   }
 })
 
-DOM.Player = React.createClass({
+DOM.Player = React.createClass({displayName: "Player",
   render: function() {
     return (
-      <div className="player">
-        <h1>Player here!</h1>
-      </div>
+      React.createElement("div", {className: "player"}, 
+        React.createElement("h1", null, "Player here!")
+      )
     );
   }
 });
 
 $(function(){
   game = new Game();
-  React.render(<DOM.Game game={game} />, document.body);
+  React.render(React.createElement(DOM.Game, {game: game}), document.body);
 })
 
 
