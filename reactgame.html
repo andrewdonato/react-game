@@ -2,26 +2,76 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Hello React!</title>
-    <script src="build/react.js"></script>
-    <script type='stylesheet' src="css/reactgame.css"></script>
-    <!-- we don't need this anymore -->
-    <!-- <script src="build/JSXTransformer.js"></script> -->
-
-    <!-- jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- /jquery -->
-
-    <!-- materialize -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
-    <!-- /materialize -->
+    <title>Hello React</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+    <script src="build/reactgame.js"></script>
   </head>
   <body>
-    <div id="example"></div>
-    <p>fuck</p>
+    <div id="content"></div>
+    <script type="text/jsx">
+
+      // -game
+      //   -miniMap  //I don't think I need to render this since it will be on the board
+      //   -board
+      //     -tile
+      //   -player
+
+
+// this is the outer most container, I would use game
+      var Game = React.createClass({
+        render: function() {
+          return (
+            <div className="game">
+              <h1>React Game</h1>
+              <Board />
+              <Player />
+            </div>
+          );
+        }
+      });
+
+      var Board = React.createClass({
+        render: function() {
+          return (
+            <div className="board">
+              <Tile position="1, 2"> THis is one Tile </Tile>
+              <Tile position="4, 4"> THis is another Tile </Tile>
+            </div>
+          );
+        }
+      });
+
+      var Player = React.createClass({
+        render: function() {
+          return (
+            <div className="player">
+              <h1>Player here!</h1>
+            </div>
+          );
+        }
+      });
+
+      var Tile = React.createClass({
+        render: function(){
+          return(
+            <div className="tile">
+              <h2 className="tilePosition">
+                {this.props.position}
+              </h2>
+              {this.props.children}
+            </div>
+          );
+        }
+      })
+
+      React.render(
+        <Game />,
+        document.getElementById('content')
+      );
+
+    </script>
   </body>
-  <!-- do we want this script anymore? -->
-  <!-- <script type="text/jsx" src="src/react-game.js"></script> -->
-  <script src="build/reactgame.js"></script>
 </html>
