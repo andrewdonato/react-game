@@ -141,7 +141,7 @@ Board.prototype.refreshTiles = function(miniMap){
 
 
     });
-    // debugger  ////sets of 25 tiles are added more than once, this might be an issue
+  debugger
   });
 };
 

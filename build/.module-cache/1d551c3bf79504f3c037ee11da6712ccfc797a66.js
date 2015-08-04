@@ -112,7 +112,7 @@ Board.prototype.refreshTiles = function(miniMap){
 
   rows = rows.map(function(row){
     // debugger
-    return row.slice(x-(BOARD_WIDTH/2), (x-(BOARD_WIDTH/2)) + BOARD_WIDTH);
+    // return row.slice(x-(BOARD_WIDTH/2), (x-(BOARD_WIDTH/2)) + BOARD_WIDTH);
   });
   var board = this
   this.tiles = [];
@@ -141,8 +141,8 @@ Board.prototype.refreshTiles = function(miniMap){
 
 
     });
-    // debugger  ////sets of 25 tiles are added more than once, this might be an issue
   });
+
 };
 
 

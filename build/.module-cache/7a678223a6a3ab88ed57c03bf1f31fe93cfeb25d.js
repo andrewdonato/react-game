@@ -108,14 +108,14 @@ Board.prototype.refreshTiles = function(miniMap){
   console.log("refreshTiles playerposition: ", x, y)
 
 
-  var rows = miniMap.slice(y-(BOARD_HEIGHT/2), (y-(BOARD_HEIGHT/2)) + BOARD_HEIGHT);
+  // var rows = miniMap.slice(y-(BOARD_HEIGHT/2), (y-(BOARD_HEIGHT/2)) + BOARD_HEIGHT);
 
-  rows = rows.map(function(row){
-    // debugger
-    return row.slice(x-(BOARD_WIDTH/2), (x-(BOARD_WIDTH/2)) + BOARD_WIDTH);
-  });
-  var board = this
-  this.tiles = [];
+  // rows = rows.map(function(row){
+  //   // debugger
+  //   return row.slice(x-(BOARD_WIDTH/2), (x-(BOARD_WIDTH/2)) + BOARD_WIDTH);
+  // });
+  // var board = this
+  // this.tiles = [];
 
 
   ////so the problem is this the x1, y1 values do not change because they are locations on the visible board and those never change.
@@ -141,8 +141,8 @@ Board.prototype.refreshTiles = function(miniMap){
 
 
     });
-    // debugger  ////sets of 25 tiles are added more than once, this might be an issue
   });
+
 };
 
 

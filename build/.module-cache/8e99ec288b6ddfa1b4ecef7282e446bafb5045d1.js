@@ -132,7 +132,7 @@ Board.prototype.refreshTiles = function(miniMap){
       //// need to add in board around player
       //// need to erase spots player is no longer seeing
 
-      board.tiles.push(new Tile(board.game, {x:x, y:y}, value));
+      // board.tiles.push(new Tile(board.game, {x:x, y:y}, value));
       //// the below line was getting stuck because x1 and y1 were the values of the locations in the board
       // board.tiles.push(new Tile(board.game, {x:x1, y:y1}, value));
       // console.log("BUNNY", x1, y1, value)
@@ -141,8 +141,8 @@ Board.prototype.refreshTiles = function(miniMap){
 
 
     });
-    // debugger  ////sets of 25 tiles are added more than once, this might be an issue
   });
+
 };
 
 
