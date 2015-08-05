@@ -1,1 +1,6 @@
 node_modules
+.module-cache
+react-with-addons.js
+react-with-addons.min.js
+react.js
+react.min.js
