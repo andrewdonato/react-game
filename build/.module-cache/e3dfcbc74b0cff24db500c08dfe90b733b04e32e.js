@@ -76,7 +76,7 @@ Board.prototype.refreshTiles = function(){
     xTo    = xFrom + BOARD_WIDTH;
 
 
-//// this is the fix for the slice disappearing the board when you go to the top or on the left.
+////
   // if (yFrom <= 1){yFrom = 0}
   // if (xFrom <= 1){xFrom = 0}
 

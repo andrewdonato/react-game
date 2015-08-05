@@ -75,10 +75,8 @@ Board.prototype.refreshTiles = function(){
     xFrom  = player.x-Math.floor(BOARD_WIDTH/2),
     xTo    = xFrom + BOARD_WIDTH;
 
-
-//// this is the fix for the slice disappearing the board when you go to the top or on the left.
-  // if (yFrom <= 1){yFrom = 0}
-  // if (xFrom <= 1){xFrom = 0}
+  if (yFrom <= 1){yFrom = 0}
+  if (xFrom <= 1){xFrom = 0}
 
   var rows   = this.game.landscape.tiles.slice(yFrom, yTo);
   var tiles  = rows.map(function(row){ return row.slice(xFrom, xTo); });

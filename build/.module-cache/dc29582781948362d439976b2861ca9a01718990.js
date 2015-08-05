@@ -12,20 +12,15 @@ var smallMap = [
 ];
 
 var mediumMap = [
-  ['','','', '', '', '', '', '', '', '', '', '', '',],     // 0
-  ['','','', '', '', '', '', '', '', '', '', '', '',],     // 0
-  ['','','walls', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls', '', '',],     // 0
-  ['','','walls', 'doom!', 'doom!', 'doom!', 'doom!', 'doom!', 'doom!', 'doom!', 'doom!', '', '',],     // 1
-  ['','','walls', 'doom!', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls', '', '',],     // 2
-  ['','','walls', 'doom!', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls', '', '',],     // 3
-  ['','','walls', 'doom!', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls', '', '',],     // 4
-  ['','','walls', 'doom!', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls', '', '',],     // 5
-  ['','','walls', 'doom!', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls', '', '',],     // 6
-  ['','','walls', 'doom!', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls', '', '',],     // 7
-  ['','','walls', 'doom!', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls', '', '',],     // 8
-  ['','','', '', '', '', '', '', '', '', '', '', '',],     // 0
-  ['','','', '', '', '', '', '', '', '', '', '', '',],     // 0
-
+  ['walls', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls'],     // 0
+  ['walls', 'doom!', 'doom!', 'doom!', 'doom!', 'doom!', 'doom!', 'doom!', 'doom!'],     // 1
+  ['walls', 'doom!', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls'],     // 2
+  ['walls', 'doom!', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls'],     // 3
+  ['walls', 'doom!', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls'],     // 4
+  ['walls', 'doom!', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls'],     // 5
+  ['walls', 'doom!', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls'],     // 6
+  ['walls', 'doom!', 'floor', 'floor', 'floor', 'floor', 'floor', 'floor', 'walls'],     // 7
+  ['walls', 'doom!', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls', 'walls'],     // 8
 ]
 var fogWar = [
   ['_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____', '_____'],     // 0
@@ -73,15 +68,11 @@ Board.prototype.refreshTiles = function(){
     yFrom  = player.y-Math.floor(BOARD_HEIGHT/2),
     yTo    = yFrom + BOARD_HEIGHT,
     xFrom  = player.x-Math.floor(BOARD_WIDTH/2),
-    xTo    = xFrom + BOARD_WIDTH;
+    xTo    = xFrom + BOARD_WIDTH,
 
+    rows   = this.game.landscape.tiles.slice(yFrom, yTo),
+    tiles  = rows.map(function(row){ return row.slice(xFrom, xTo); });
 
-//// this is the fix for the slice disappearing the board when you go to the top or on the left.
-  // if (yFrom <= 1){yFrom = 0}
-  // if (xFrom <= 1){xFrom = 0}
-
-  var rows   = this.game.landscape.tiles.slice(yFrom, yTo);
-  var tiles  = rows.map(function(row){ return row.slice(xFrom, xTo); });
 
   this.tiles = tiles;
   return this;
@@ -114,11 +105,14 @@ Player.prototype.move = function(direction){
   var landscape = this.game.landscape;
 
 
+  // if (yTo === 1 || xTo === 1){
+  //   console.log("aaaaaaaaahhhhhh!!!!")
+  // }else{}
 
   if (this.y < 0) this.y = 0;
   if (this.x < 0) this.x = 0;
-  if (this.y > landscape.height - 1) this.y = landscape.height - 1;
-  if (this.x > landscape.width  - 1) this.x = landscape.width  - 1;
+  if (this.y > landscape.height) this.y = landscape.height;
+  if (this.x > landscape.width)  this.x = landscape.width;
 
   console.info('moving player '+direction+' from ', from, 'to', {x:this.x, y:this.y})
 
@@ -150,10 +144,10 @@ DOM.Game = React.createClass({displayName: "Game",
     var game = this.props.game;
     console.log(event.keyCode)
     switch(event.keyCode){
-      case 38 || 87: game.player.move('up');    break;
-      case 40 || 83: game.player.move('down');  break;
-      case 37 || 65: game.player.move('left');  break;
-      case 39 || 68: game.player.move('right'); break;
+      case 38: game.player.move('up');    break;
+      case 40: game.player.move('down');  break;
+      case 37: game.player.move('left');  break;
+      case 39: game.player.move('right'); break;
     }
     this.forceUpdate();
   },
