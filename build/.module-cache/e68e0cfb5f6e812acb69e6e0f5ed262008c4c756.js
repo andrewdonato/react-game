@@ -1,5 +1,0 @@
-- Map
-  - Board
-    - Tiles
-  - Player
-
