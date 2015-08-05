@@ -1,0 +1,29 @@
+{
+  "name": "react-game",
+  "version": "1.0.0",
+  "description": "A simple game(toy) made with ReactJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrewdonato/react-game.git"
+  },
+  "keywords": [
+    "react",
+    "gamelogic"
+  ],
+  "author": "AndrewDonato",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andrewdonato/react-game/issues"
+  },
+  "homepage": "https://github.com/andrewdonato/react-game",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "engines": {
+    "node": "0.12.2"
+  }
+}

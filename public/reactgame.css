@@ -1,0 +1,21 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.Board-row{
+  display: flex;
+}
+.Board-tile{
+  border: 1px solid black;
+  height: 50px;
+  width: 50px;
+}
