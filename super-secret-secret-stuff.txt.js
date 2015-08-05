@@ -1,10 +1,10 @@
 things I need to do:
 
-clear tabs
+// clear tabs
 
-walk through my code
-    annotate my code
-    read about specific React methods
+// walk through my code
+    // annotate my code
+    // read about specific React methods
 
 clear tabs
 
@@ -26,8 +26,9 @@ record my video
     talk about React
 
     talk about doing the work itself
-        talk about compiler
         talk about JSX
+        talk about compiler
+        pushing to heroku
 
     talk about stretch goals
 

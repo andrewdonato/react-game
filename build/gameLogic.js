@@ -47,6 +47,8 @@ Game = function(){
 
 Landscape = function(game, spec){
   this.game = game
+
+  //// populates the landscape with new tiles
   this.tiles = spec.map(function(row, y){
     return row.map(function(value, x){
       return new Tile(game, {x:x,y:y}, value);
@@ -72,10 +74,11 @@ Board.prototype.refreshTiles = function(){
     xTo    = xFrom + BOARD_WIDTH;
 
 
-//// this is the fix for the slice disappearing the board when you go to the top or on the left.
+  //// this is the fix for the slice disappearing the board when you go to the top or on the left.
   if (yFrom <= 1){yFrom = 0}
   if (xFrom <= 1){xFrom = 0}
 
+  //// populates the visible board with the tiles from the landscape
   var rows   = this.game.landscape.tiles.slice(yFrom, yTo);
   var tiles  = rows.map(function(row){ return row.slice(xFrom, xTo); });
 
@@ -99,8 +102,8 @@ Player = function(game, x, y){
 };
 
 Player.prototype.move = function(direction){
-  var from = {x:this.x, y:this.y}
 
+  var from = {x:this.x, y:this.y}
 
   if (direction === 'up'   ) this.y--;
   if (direction === 'down' ) this.y++;
@@ -110,7 +113,7 @@ Player.prototype.move = function(direction){
   var landscape = this.game.landscape;
 
 
-
+  //// logic that prevents the player from going off the landscape
   if (this.y < 0) this.y = 0;
   if (this.x < 0) this.x = 0;
   if (this.y > landscape.height - 1) this.y = landscape.height - 1;
